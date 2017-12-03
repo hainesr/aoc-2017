@@ -8,7 +8,7 @@
 
 module AOC17
 
-  def reverse_captcha(numbers, distance = 1)
+  def inverse_captcha(numbers, distance = 1)
     length = numbers.length
     numbers = numbers + numbers[0...distance]
 

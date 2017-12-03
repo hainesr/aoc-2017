@@ -9,7 +9,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'reverse-captcha'
+require 'inverse-captcha'
 
 module AOC17
 end
