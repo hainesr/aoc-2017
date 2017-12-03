@@ -10,8 +10,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rake
-  test-unit
+  rake (~> 12.3.0)
+  test-unit (~> 3.2.6)
 
 BUNDLED WITH
    1.16.0
