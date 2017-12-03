@@ -31,4 +31,13 @@ class TestAOC17 < Test::Unit::TestCase
     assert_equal(inverse_captcha([1, 2, 1, 3, 1, 4, 1, 5], 4), 4)
   end
 
+  #
+  # Day 2.
+  #
+
+  def test_corruption_part_1
+    assert_equal(corruption_checksum([[5, 1, 9, 5], [7, 3, 5], [2, 4, 6, 8]]), 18)
+    assert_equal(corruption_checksum([[0, -1], [10, 10], [-1, -1]]), 1)
+  end
+
 end

@@ -10,6 +10,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'inverse-captcha'
+require 'corruption-checksum'
 
 module AOC17
 end
