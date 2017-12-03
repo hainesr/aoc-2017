@@ -40,4 +40,8 @@ class TestAOC17 < Test::Unit::TestCase
     assert_equal(corruption_checksum([[0, -1], [10, 10], [-1, -1]]), 1)
   end
 
+  def test_corruption_part_2
+    assert_equal(corruption_checksum([[5, 9, 2, 8], [9, 4, 7, 3], [3, 8, 6, 5]], :div), 9)
+  end
+
 end

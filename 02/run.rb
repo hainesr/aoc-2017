@@ -18,3 +18,4 @@ File.foreach(INPUT) do |line|
 end
 
 puts "Part 1: #{corruption_checksum(input)}"
+puts "Part 2: #{corruption_checksum(input, :div)}"

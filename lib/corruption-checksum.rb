@@ -18,4 +18,13 @@ module AOC17
     row.max - row.min
   end
 
+  def row_div(row)
+    row.each do |x|
+      row.each do |y|
+        next if x == y
+        return x / y if x % y == 0
+      end
+    end
+  end
+
 end
