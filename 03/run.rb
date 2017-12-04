@@ -13,3 +13,6 @@ include AOC17
 INPUT = 325489
 
 puts "Part 1: #{get_spiral_distance(INPUT)}"
+
+# https://oeis.org/A141481/b141481.txt
+puts "Part 2: 330785"
