@@ -44,4 +44,22 @@ class TestAOC17 < Test::Unit::TestCase
     assert_equal(corruption_checksum([[5, 9, 2, 8], [9, 4, 7, 3], [3, 8, 6, 5]], :div), 9)
   end
 
+  #
+  # Day 3.
+  #
+
+  def test_side_length
+    assert_equal(side_length(1), 1)
+    assert_equal(side_length(9), 3)
+    assert_equal(side_length(12), 5)
+    assert_equal(side_length(23), 5)
+  end
+
+  def test_spiral_memory
+    assert_equal(get_spiral_distance(1), 0)
+    assert_equal(get_spiral_distance(12), 3)
+    assert_equal(get_spiral_distance(23), 2)
+    assert_equal(get_spiral_distance(1024), 31)
+  end
+
 end
