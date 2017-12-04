@@ -70,6 +70,12 @@ class TestAOC17 < Test::Unit::TestCase
     assert(check_passphrase("aa bb cc dd ee"))
     refute(check_passphrase("aa bb cc dd aa"))
     assert(check_passphrase("aa bb cc dd aaa"))
+
+    assert(check_passphrase("abcde fghij", true))
+    refute(check_passphrase("abcde xyz ecdab", true))
+    assert(check_passphrase("a ab abc abd abf abj", true))
+    assert(check_passphrase("iiii oiii ooii oooi oooo", true))
+    refute(check_passphrase("oiii ioii iioi iiio", true))
   end
 
 end

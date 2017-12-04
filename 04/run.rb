@@ -11,9 +11,12 @@ include AOC17
 
 INPUT = File.join(File.dirname(__FILE__), 'input.txt')
 
-num = 0
+p1 = 0
+p2 = 0
 File.foreach(INPUT) do |line|
-  num += 1 if check_passphrase(line)
+  p1 += 1 if check_passphrase(line)
+  p2 += 1 if check_passphrase(line, true)
 end
 
-puts "Part 1: #{num}"
+puts "Part 1: #{p1}"
+puts "Part 2: #{p2}"
