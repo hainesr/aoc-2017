@@ -62,4 +62,14 @@ class TestAOC17 < Test::Unit::TestCase
     assert_equal(get_spiral_distance(1024), 31)
   end
 
+  #
+  # Day 4.
+  #
+
+  def test_check_passphrase
+    assert(check_passphrase("aa bb cc dd ee"))
+    refute(check_passphrase("aa bb cc dd aa"))
+    assert(check_passphrase("aa bb cc dd aaa"))
+  end
+
 end
