@@ -22,4 +22,18 @@ module AOC17
     steps
   end
 
+  def count_jumps_ng(instrs)
+    i = 0
+    steps = 0
+
+    while i >= 0 && i < instrs.length
+      j = instrs[i]
+      instrs[i] = (instrs[i] >= 3) ? j - 1 : j + 1
+      i += j
+      steps += 1
+    end
+
+    steps
+  end
+
 end

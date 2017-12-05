@@ -84,6 +84,8 @@ class TestAOC17 < Test::Unit::TestCase
 
   def test_count_jumps
     assert_equal(count_jumps([0, 3, 0, 1, -3]), 5)
+
+    assert_equal(count_jumps_ng([0, 3, 0, 1, -3]), 10)
   end
 
 end
