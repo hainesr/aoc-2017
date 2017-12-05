@@ -78,4 +78,12 @@ class TestAOC17 < Test::Unit::TestCase
     refute(check_passphrase("oiii ioii iioi iiio", true))
   end
 
+  #
+  # Day 5.
+  #
+
+  def test_count_jumps
+    assert_equal(count_jumps([0, 3, 0, 1, -3]), 5)
+  end
+
 end

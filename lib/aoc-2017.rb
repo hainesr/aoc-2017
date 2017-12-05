@@ -13,6 +13,7 @@ require 'inverse-captcha'
 require 'corruption-checksum'
 require 'spiral-memory'
 require 'high-entropy-passphrases'
+require 'twisty-trampolines'
 
 module AOC17
 end
