@@ -88,4 +88,28 @@ class TestAOC17 < Test::Unit::TestCase
     assert_equal(count_jumps_ng([0, 3, 0, 1, -3]), 10)
   end
 
+  #
+  # Day 6.
+  #
+
+  def test_get_full_block
+    assert_equal(get_full_block([0, 2, 7, 0]), 2)
+    assert_equal(get_full_block([2, 4, 1, 2]), 1)
+    assert_equal(get_full_block([3, 1, 2, 3]), 0)
+    assert_equal(get_full_block([0, 2, 3, 4]), 3)
+    assert_equal(get_full_block([1, 3, 4, 1]), 2)
+  end
+
+  def test_redistribute_block
+    assert_equal(redistribute_block([0, 2, 7, 0], 2), [2, 4, 1, 2])
+    assert_equal(redistribute_block([2, 4, 1, 2], 1), [3, 1, 2, 3])
+    assert_equal(redistribute_block([3, 1, 2, 3], 0), [0, 2, 3, 4])
+    assert_equal(redistribute_block([0, 2, 3, 4], 3), [1, 3, 4, 1])
+    assert_equal(redistribute_block([1, 3, 4, 1], 2), [2, 4, 1, 2])
+  end
+
+  def test_reallocate_memory
+    assert_equal(reallocate_memory([0, 2, 7, 0]), 5)
+  end
+
 end
