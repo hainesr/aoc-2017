@@ -37,13 +37,21 @@ module AOC17
     b
   end
 
-  def reallocate_memory(blocks)
+  def reallocate_memory(blocks, count = :first_repeat)
     history = [blocks]
     steps = 1
 
     while true
       blocks = redistribute_block(blocks, get_full_block(blocks))
-      break if history.index(blocks)
+
+      if history.index(blocks)
+        if count == :loop
+          return reallocate_memory(blocks)
+        else
+          break
+        end
+      end
+
       history.push blocks
       steps += 1
     end

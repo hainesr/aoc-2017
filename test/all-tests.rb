@@ -110,6 +110,7 @@ class TestAOC17 < Test::Unit::TestCase
 
   def test_reallocate_memory
     assert_equal(reallocate_memory([0, 2, 7, 0]), 5)
+    assert_equal(reallocate_memory([0, 2, 7, 0], :loop), 4)
   end
 
 end
