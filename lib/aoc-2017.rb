@@ -15,6 +15,7 @@ require 'spiral-memory'
 require 'high-entropy-passphrases'
 require 'twisty-trampolines'
 require 'memory-reallocation'
+require 'recursive-circus'
 
 module AOC17
 end
