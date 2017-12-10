@@ -136,4 +136,40 @@ cntj (57)"
     assert_equal(get_bottom_program(TEST_TOWER), "tknk")
   end
 
+  def test_get_program_tree
+    structure = get_program_tree(TEST_TOWER)
+    assert_equal(structure["fwft"], ["ktlj", "cntj", "xhth"])
+    assert_equal(structure["tknk"], ["ugml", "padx", "fwft"])
+    assert_nil(structure["cntj"])
+  end
+
+  def test_get_program_weights
+    weights = get_program_weights(TEST_TOWER)
+    assert_equal(weights["pbga"], 66)
+    assert_equal(weights["tknk"], 41)
+    assert_equal(weights["fwft"], 72)
+    assert_equal(weights["ebii"], 61)
+  end
+
+  def test_branch_weights_and_test_balance_tower
+    tower = create_program_tower(TEST_TOWER)
+
+    # Test correct tower and sub-tower weights.
+    assert_equal(tower.branch_weight, 778)
+    assert_equal(tower.children[1].branch_weight, 243)
+
+    # test correct tower and sub-tower common child weights, and unique nodes.
+    tcw, un = tower.common_child_weights
+    assert_equal(tcw, 243)
+    assert_equal(un.name, "ugml")
+
+    tcw, un = tower.children[1].common_child_weights
+    assert_equal(tcw, 66)
+    assert_equal(un, nil)
+
+    # Test correct unbalanced program and correct weight to balance the tower.
+    assert_equal(unbalanced_program(tower).name, "ugml")
+    assert_equal(balance_tower(tower), 60)
+  end
+
 end
