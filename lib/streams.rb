@@ -26,7 +26,7 @@ module AOC17
       end
     end
 
-    score
+    [score, 0]
   end
 
 end

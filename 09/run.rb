@@ -14,4 +14,5 @@ INPUT = File.join(File.dirname(__FILE__), 'input.txt')
 
 input = File.read(INPUT)
 
-puts "Part 1: #{stream_score(input)}"
+score, _ = stream_score(input)
+puts "Part 1: #{score}"
