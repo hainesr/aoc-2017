@@ -199,5 +199,6 @@ c inc -20 if c == 10"
 
   def test_stream_score
     assert_equal(stream_score("{}"), 1)
+    assert_equal(stream_score("{{{}}}"), 6)
   end
 end
