@@ -16,3 +16,4 @@ input = File.read(INPUT)
 computer = Computor.process_input(input)
 
 puts "Part 1: #{computer.max_value}"
+puts "Part 2: #{computer.running_max}"

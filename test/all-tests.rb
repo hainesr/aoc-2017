@@ -190,6 +190,7 @@ c inc -20 if c == 10"
   def test_process_instructions
     comp = Computor.process_input(TEST_INSTRUCTIONS)
     assert_equal(comp.max_value, 1)
+    assert_equal(comp.running_max, 10)
   end
 
 end

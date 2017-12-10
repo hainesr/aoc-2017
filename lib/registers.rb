@@ -9,15 +9,19 @@
 module AOC17
 
   class Computor
+    attr_reader :running_max
 
     def initialize
       @registers = Hash.new(0)
+      @running_max = 0
     end
 
     def process_instruction(target, op, param, c_target, c_op, c_param)
       if @registers[c_target].send(c_op, c_param)
         send(op, target, param)
       end
+
+      @running_max = [@running_max, max_value].max
     end
 
     def max_value
