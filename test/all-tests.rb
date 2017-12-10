@@ -231,6 +231,7 @@ c inc -20 if c == 10"
     assert_equal(knot.k_hash(4), [4, 3, 0, 1, 2])
     assert_equal(knot.k_hash(1), [4, 3, 0, 1, 2])
     assert_equal(knot.k_hash(5), [3, 4, 2, 1, 0])
+    assert_equal(knot.checksum, 12)
   end
 
 end

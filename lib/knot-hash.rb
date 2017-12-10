@@ -34,6 +34,10 @@ module AOC17
       @string
     end
 
+    def checksum
+      @string[0] * @string[1]
+    end
+
   end
 
 end
