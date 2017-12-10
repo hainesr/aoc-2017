@@ -13,17 +13,22 @@ module AOC17
 
     def initialize(size = 256)
       @string = Array.new(size) { |i| i }
+      @size = size
       @start = 0
       @skip = 0
     end
 
     def k_hash(length)
-      @string.rotate!(@start)
-      r = @string[0...length]
-      r.reverse!
-      @string[0...length] = r
-      @string.rotate!(@start * -1)
-      @start = length + @skip
+      if length > 1
+        @string.rotate!(@start)
+        r = @string[0...length]
+        r.reverse!
+        @string[0...length] = r
+        @string.rotate!(@start * -1)
+      end
+
+      @start += (length + @skip)
+      @start = (@start >= @size) ? @start -= @size : @start
       @skip += 1
 
       @string
