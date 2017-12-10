@@ -21,7 +21,7 @@ module AOC17
     end
 
     def max_value
-      @registers.values.max
+      @registers.values.max || 0
     end
 
     def self.process_input(input)
