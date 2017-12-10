@@ -18,9 +18,11 @@ module AOC17
     end
 
     def k_hash(length)
-      r = @string[@start...length]
+      @string.rotate!(@start)
+      r = @string[0...length]
       r.reverse!
-      @string[@start...length] = r
+      @string[0...length] = r
+      @string.rotate!(@start * -1)
       @start = length + @skip
       @skip += 1
 
