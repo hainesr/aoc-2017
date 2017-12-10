@@ -234,4 +234,9 @@ c inc -20 if c == 10"
     assert_equal(knot.checksum, 12)
   end
 
+  def test_full_knot_hash
+    knot = KnotHash.new
+    assert_equal(knot.full_hash, "a2582a3a0e66e6e86e3812dcb672a272")
+  end
+
 end
