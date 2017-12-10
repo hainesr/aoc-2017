@@ -205,5 +205,8 @@ c inc -20 if c == 10"
     assert_equal(stream_score("{<a>,<a>,<a>,<a>}"), 1)
     assert_equal(stream_score("{{<ab>},{<ab>},{<ab>},{<ab>}}"), 9)
     assert_equal(stream_score("{{<!!>},{<!!>},{<!!>},{<!!>}}"), 9)
+    assert_equal(stream_score("{{<a!>},{<a!>},{<a!>},{<ab>}}"), 3)
+    assert_equal(stream_score("{<{},{},{{}}>}"), 1)
+    assert_equal(stream_score("{<<<<>}"), 1)
   end
 end
