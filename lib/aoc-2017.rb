@@ -18,6 +18,7 @@ require 'memory-reallocation'
 require 'recursive-circus'
 require 'registers'
 require 'streams'
+require 'knot-hash'
 
 module AOC17
 end

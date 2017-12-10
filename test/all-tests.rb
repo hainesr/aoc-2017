@@ -221,4 +221,13 @@ c inc -20 if c == 10"
     assert_equal(stream_score('{<{o"i!a,<{i<a>}')[1], 10)
   end
 
+  #
+  # Day 10.
+  #
+
+  def test_knot_hash
+    knot = KnotHash.new(5)
+    assert_equal(knot.k_hash(3), [2, 1, 0, 3, 4])
+  end
+
 end
