@@ -9,6 +9,7 @@
 module AOC17
 
   def stream_score(input)
+    input.gsub!(/[^{}]/, '')
     _, score = input.chars.reduce([0, 0]) do |(depth, total), c|
       case c
       when ?{ then [depth + 1, total]

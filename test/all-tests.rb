@@ -200,5 +200,10 @@ c inc -20 if c == 10"
   def test_stream_score
     assert_equal(stream_score("{}"), 1)
     assert_equal(stream_score("{{{}}}"), 6)
+    assert_equal(stream_score("{{},{}}"), 5)
+    assert_equal(stream_score("{{{},{},{{}}}}"), 16)
+    assert_equal(stream_score("{<a>,<a>,<a>,<a>}"), 1)
+    assert_equal(stream_score("{{<ab>},{<ab>},{<ab>},{<ab>}}"), 9)
+    assert_equal(stream_score("{{<!!>},{<!!>},{<!!>},{<!!>}}"), 9)
   end
 end
