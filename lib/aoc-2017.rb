@@ -17,6 +17,7 @@ require 'twisty-trampolines'
 require 'memory-reallocation'
 require 'recursive-circus'
 require 'registers'
+require 'streams'
 
 module AOC17
 end

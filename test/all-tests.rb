@@ -193,4 +193,11 @@ c inc -20 if c == 10"
     assert_equal(comp.running_max, 10)
   end
 
+  #
+  # Day 9.
+  #
+
+  def test_stream_score
+    assert_equal(stream_score("{}"), 1)
+  end
 end
