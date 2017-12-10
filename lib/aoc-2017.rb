@@ -16,6 +16,7 @@ require 'high-entropy-passphrases'
 require 'twisty-trampolines'
 require 'memory-reallocation'
 require 'recursive-circus'
+require 'registers'
 
 module AOC17
 end
