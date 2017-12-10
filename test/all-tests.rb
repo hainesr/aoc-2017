@@ -213,6 +213,12 @@ c inc -20 if c == 10"
   def test_stream_garbage_ammount
     assert_equal(stream_score("{}")[1], 0)
     assert_equal(stream_score("{{{}}}")[1], 0)
+    assert_equal(stream_score("{<random characters>}")[1], 17)
+    assert_equal(stream_score("{<<<<>}")[1], 3)
+    assert_equal(stream_score("{<{!>}>}")[1], 2)
+    assert_equal(stream_score("{<!!>}")[1], 0)
+    assert_equal(stream_score("{<!!!>>}")[1], 0)
+    assert_equal(stream_score('{<{o"i!a,<{i<a>}')[1], 10)
   end
 
 end

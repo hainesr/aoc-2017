@@ -12,8 +12,11 @@ module AOC17
     # First, get rid of the cancelled data.
     input.gsub!(/!./, '')
 
-    # Strip out garbage.
-    input.gsub!(/<.*?>/, '')
+    # Strip out garbage, and count how much we remove, less < and >.
+    garbage = 0
+    input.gsub!(/<.*?>/) do |g|
+      garbage += (g.length - 2)
+    end
 
     # Get rid of anything left that isn't a { or }.
     input.gsub!(/[^{}]/, '')
@@ -26,7 +29,7 @@ module AOC17
       end
     end
 
-    [score, 0]
+    [score, garbage]
   end
 
 end
