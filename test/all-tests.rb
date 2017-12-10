@@ -209,4 +209,10 @@ c inc -20 if c == 10"
     assert_equal(stream_score("{<{},{},{{}}>}")[0], 1)
     assert_equal(stream_score("{<<<<>}")[0], 1)
   end
+
+  def test_stream_garbage_ammount
+    assert_equal(stream_score("{}")[1], 0)
+    assert_equal(stream_score("{{{}}}")[1], 0)
+  end
+
 end
