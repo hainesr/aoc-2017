@@ -19,6 +19,7 @@ require 'recursive-circus'
 require 'registers'
 require 'streams'
 require 'knot-hash'
+require 'hex-ed'
 
 module AOC17
 end

@@ -248,4 +248,15 @@ c inc -20 if c == 10"
     assert_equal(knot.full_hash("1,2,4"), "63960835bcdc130f0b66d7ff4f6a5a8e")
   end
 
+  #
+  # Day 11.
+  #
+
+  def test_hex_distance
+    assert_equal(hex_distance(["ne", "ne", "ne"]), 3)
+    assert_equal(hex_distance(["ne", "ne", "sw", "sw"]), 0)
+    assert_equal(hex_distance(["ne", "ne", "s", "s"]), 2)
+    assert_equal(hex_distance(["se", "sw", "se", "sw", "sw"]), 3)
+  end
+
 end
