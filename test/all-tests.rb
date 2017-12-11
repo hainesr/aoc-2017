@@ -259,4 +259,11 @@ c inc -20 if c == 10"
     assert_equal(hex_distance(["se", "sw", "se", "sw", "sw"]), 3)
   end
 
+  def test_hex_distance_max
+    assert_equal(hex_distance(["ne", "ne", "ne"], :max), 3)
+    assert_equal(hex_distance(["ne", "ne", "sw", "sw"], :max), 2)
+    assert_equal(hex_distance(["ne", "ne", "s", "s"], :max), 2)
+    assert_equal(hex_distance(["se", "sw", "se", "sw", "sw"], :max), 3)
+  end
+
 end

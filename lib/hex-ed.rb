@@ -8,9 +8,10 @@
 
 module AOC17
 
-  def hex_distance(moves)
+  def hex_distance(moves, out = :min)
     x = 0
     y = 0
+    max = 0
 
     moves.each do |m|
       case m
@@ -23,9 +24,11 @@ module AOC17
       when 'se' then x += 0.5; y -= 0.5
       when 'sw' then x -= 0.5; y -= 0.5
       end
+
+      max = [max, (x.abs + y.abs).to_i].max
     end
 
-    (x.abs + y.abs).to_i
+    out == :max ? max : (x.abs + y.abs).to_i
   end
 
 end
