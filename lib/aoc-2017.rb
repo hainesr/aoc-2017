@@ -21,6 +21,7 @@ require 'streams'
 require 'knot-hash'
 require 'hex-ed'
 require 'digital-plumber'
+require 'packet-scanners'
 
 module AOC17
 end

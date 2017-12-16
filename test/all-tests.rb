@@ -293,4 +293,43 @@ c inc -20 if c == 10"
     assert_equal(get_all_program_groups(pipes), [[0, 2, 3, 4, 5, 6], [1]])
   end
 
+  #
+  # Day 13.
+  #
+
+  TEST_SCANNERS = "0: 3\n1: 2\n4: 4\n6: 4"
+
+  def test_packet_scanners
+    scanners = read_scanners(TEST_SCANNERS)
+
+    assert_equal(scanners[0], 3)
+    assert_equal(scanners[1], 2)
+    assert_equal(scanners[6], 4)
+    assert_equal(scanners[2], nil)
+  end
+
+  def test_scanner_position
+    assert(scanner_position_0(2, 0))
+    assert(scanner_position_0(3, 0))
+    assert(scanner_position_0(6, 0))
+    assert(scanner_position_0(17, 0))
+    assert(scanner_position_0(20, 0))
+
+    refute(scanner_position_0(nil, 0))
+    refute(scanner_position_0(2, 1))
+    refute(scanner_position_0(3, 1))
+    refute(scanner_position_0(6, 1))
+    refute(scanner_position_0(17, 1))
+
+    assert(scanner_position_0(3, 4))
+    assert(scanner_position_0(4, 6))
+    assert(scanner_position_0(5, 8))
+  end
+
+  def test_traverse_firewall
+    scanners = read_scanners(TEST_SCANNERS)
+
+    assert_equal(traverse_firewall(scanners), 24)
+  end
+
 end
