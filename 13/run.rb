@@ -16,3 +16,4 @@ input = File.read(INPUT).chomp
 scanners = read_scanners(input)
 
 puts "Part 1: #{traverse_firewall(scanners)}"
+puts "Part 2: #{safe_firewall_traverse_time(scanners)}"

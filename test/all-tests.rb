@@ -330,6 +330,7 @@ c inc -20 if c == 10"
     scanners = read_scanners(TEST_SCANNERS)
 
     assert_equal(traverse_firewall(scanners), 24)
+    assert_equal(safe_firewall_traverse_time(scanners), 10)
   end
 
 end
