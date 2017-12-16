@@ -289,6 +289,8 @@ c inc -20 if c == 10"
     assert_equal(get_program_group(pipes, 0), [0, 2, 3, 4, 5, 6])
     assert_equal(get_program_group(pipes, 6), [0, 2, 3, 4, 5, 6])
     assert_equal(get_program_group(pipes, 1), [1])
+
+    assert_equal(get_all_program_groups(pipes), [[0, 2, 3, 4, 5, 6], [1]])
   end
 
 end

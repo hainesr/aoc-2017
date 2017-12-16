@@ -28,4 +28,18 @@ module AOC17
     group.uniq.sort
   end
 
+  def get_all_program_groups(pipes)
+    groups = []
+    programs = []
+
+    pipes.each do |key, value|
+      next if programs.include?(key)
+      programs.push(key)
+      programs += value
+      groups.push(get_program_group(pipes, key))
+    end
+
+    groups.uniq
+  end
+
 end
