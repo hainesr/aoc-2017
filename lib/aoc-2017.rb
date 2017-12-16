@@ -22,6 +22,7 @@ require 'knot-hash'
 require 'hex-ed'
 require 'digital-plumber'
 require 'packet-scanners'
+require 'disk-defragmentation'
 
 module AOC17
 end

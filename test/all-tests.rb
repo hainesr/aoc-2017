@@ -333,4 +333,14 @@ c inc -20 if c == 10"
     assert_equal(safe_firewall_traverse_time(scanners), 10)
   end
 
+  #
+  # Day 14.
+  #
+
+  TEST_DEFRAG = "flqrgnkx"
+
+  def test_defrag_blocks_used
+    assert_equal(defrag_blocks_used(TEST_DEFRAG), 8108)
+  end
+
 end
