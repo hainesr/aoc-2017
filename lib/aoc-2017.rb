@@ -20,6 +20,7 @@ require 'registers'
 require 'streams'
 require 'knot-hash'
 require 'hex-ed'
+require 'digital-plumber'
 
 module AOC17
 end

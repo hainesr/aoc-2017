@@ -266,4 +266,29 @@ c inc -20 if c == 10"
     assert_equal(hex_distance(["se", "sw", "se", "sw", "sw"], :max), 3)
   end
 
+  #
+  # Day 12.
+  #
+
+  TEST_PIPES =
+  "0 <-> 2
+1 <-> 1
+2 <-> 0, 3, 4
+3 <-> 2, 4
+4 <-> 2, 3, 6
+5 <-> 6
+6 <-> 4, 5"
+
+  def test_pipes
+    pipes = read_pipes(TEST_PIPES)
+
+    assert_equal(pipes[0], [2])
+    assert_equal(pipes[1], [1])
+    assert_equal(pipes[6], [4, 5])
+
+    assert_equal(get_program_group(pipes, 0), [0, 2, 3, 4, 5, 6])
+    assert_equal(get_program_group(pipes, 6), [0, 2, 3, 4, 5, 6])
+    assert_equal(get_program_group(pipes, 1), [1])
+  end
+
 end
