@@ -377,4 +377,19 @@ c inc -20 if c == 10"
     refute(Generator.compare(a.value, b.value))
   end
 
+  def test_generator_2
+    a = Generator.new(16807, 65, 4)
+    b = Generator.new(48271, 8921, 8)
+
+    assert_equal(a.value, 1352636452)
+    assert_equal(b.value, 1233683848)
+    assert_equal(a.value, 1992081072)
+    assert_equal(b.value, 862516352)
+    assert_equal(a.value, 530830436)
+    assert_equal(b.value, 1159784568)
+    assert_equal(a.value, 1980017072)
+    assert_equal(b.value, 1616057672)
+    assert_equal(a.value, 740335192)
+    assert_equal(b.value, 412269392)
+  end
 end

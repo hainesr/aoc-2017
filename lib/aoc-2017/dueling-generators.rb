@@ -12,13 +12,16 @@ module AOC2017
 
     DIVISOR = 2147483647
 
-    def initialize(factor, seed)
+    def initialize(factor, seed, multiple = 1)
       @factor = factor
       @value = seed
+      @multiple = multiple
     end
 
     def value
-      @value = (@value * @factor) % DIVISOR
+      while (@value = (@value * @factor) % DIVISOR) % @multiple != 0; end
+
+      @value
     end
 
     def self.compare(one, two)
