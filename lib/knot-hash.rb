@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   class KnotHash
     attr_reader :string

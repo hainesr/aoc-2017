@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def read_pipes(input)
     pipes = {}

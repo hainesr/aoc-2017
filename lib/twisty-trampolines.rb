@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def count_jumps(instrs)
     i = 0

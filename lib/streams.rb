@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def stream_score(input)
     # First, get rid of the cancelled data.

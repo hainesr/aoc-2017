@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def inverse_captcha(numbers, distance = 1)
     length = numbers.length

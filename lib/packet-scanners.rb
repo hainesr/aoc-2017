@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def read_scanners(input)
     Hash[input.split("\n").map { |line| line.split(': ').map { |s| s.to_i } }]

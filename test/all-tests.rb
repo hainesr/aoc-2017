@@ -9,8 +9,8 @@
 require 'test/unit'
 require 'aoc-2017'
 
-class TestAOC17 < Test::Unit::TestCase
-  include AOC17
+class TestAOC2017 < Test::Unit::TestCase
+  include AOC2017
 
   #
   # Day 1.

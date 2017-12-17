@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def hex_distance(moves, out = :min)
     x = 0

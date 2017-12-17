@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def corruption_checksum(spreadsheet, method = :diff)
     spreadsheet.reduce(0) do |sum, row|

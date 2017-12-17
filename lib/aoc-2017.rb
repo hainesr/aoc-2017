@@ -24,5 +24,5 @@ require 'digital-plumber'
 require 'packet-scanners'
 require 'disk-defragmentation'
 
-module AOC17
+module AOC2017
 end

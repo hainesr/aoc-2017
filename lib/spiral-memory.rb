@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def side_length(num)
     rounded_root = Math.sqrt(num).ceil

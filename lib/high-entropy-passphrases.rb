@@ -6,7 +6,7 @@
 # Public Domain
 #
 
-module AOC17
+module AOC2017
 
   def check_passphrase(passphrase, anagrams = false)
     pp = passphrase.split
