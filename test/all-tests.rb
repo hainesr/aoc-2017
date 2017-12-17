@@ -392,4 +392,31 @@ c inc -20 if c == 10"
     assert_equal(a.value, 740335192)
     assert_equal(b.value, 412269392)
   end
+
+  #
+  # Day 16.
+  #
+
+  def test_promenade_moves
+    prom = Promenade.new(5)
+
+    assert_equal(prom.line, "abcde")
+
+    prom.spin(1)
+    assert_equal(prom.line, "eabcd")
+
+    prom.exchange(3, 4)
+    assert_equal(prom.line, "eabdc")
+
+    prom.partner('e', 'b')
+    assert_equal(prom.line, "baedc")
+  end
+
+  def test_promenade_dance
+    prom = Promenade.new(5)
+
+    prom.dance("s1,x3/4,pe/b")
+    assert_equal(prom.line, "baedc")
+  end
+
 end

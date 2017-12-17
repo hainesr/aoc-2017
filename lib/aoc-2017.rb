@@ -24,6 +24,7 @@ require 'aoc-2017/digital-plumber'
 require 'aoc-2017/packet-scanners'
 require 'aoc-2017/disk-defragmentation'
 require 'aoc-2017/dueling-generators'
+require 'aoc-2017/permutation-promenade'
 
 module AOC2017
 end
