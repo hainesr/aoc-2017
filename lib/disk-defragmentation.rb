@@ -29,12 +29,12 @@ module AOC17
   end
 
   def defrag_blocks_regions(blocks)
-    seen = []
+    seen = Array.new(128) { Array.new(128, false) }
     num = 0
     128.times do |i|
       128.times do |j|
         next if blocks[i][j] == 0
-        next if seen.include?([i, j])
+        next if seen[i][j]
         num += 1
         _blocks_dfs(blocks, i, j, seen)
       end
@@ -45,9 +45,9 @@ module AOC17
 
   def _blocks_dfs(blocks, i, j, seen)
     return if blocks[i][j] == 0
-    return if seen.include?([i, j])
+    return if seen[i][j]
 
-    seen.push [i, j]
+    seen[i][j] = true
 
     _blocks_dfs(blocks, i - 1, j, seen) if i > 0
     _blocks_dfs(blocks, i + 1, j, seen) if i < 127
