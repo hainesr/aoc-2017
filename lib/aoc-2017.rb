@@ -23,6 +23,7 @@ require 'aoc-2017/hex-ed'
 require 'aoc-2017/digital-plumber'
 require 'aoc-2017/packet-scanners'
 require 'aoc-2017/disk-defragmentation'
+require 'aoc-2017/dueling-generators'
 
 module AOC2017
 end

@@ -346,4 +346,35 @@ c inc -20 if c == 10"
     assert_equal(defrag_blocks_regions(blocks), 1242)
   end
 
+  #
+  # Day 15.
+  #
+
+  def test_generator
+    a = Generator.new(16807, 65)
+    b = Generator.new(48271, 8921)
+
+    assert_equal(a.value, 1092455)
+    assert_equal(b.value, 430625591)
+    assert_equal(a.value, 1181022009)
+    assert_equal(b.value, 1233683848)
+    assert_equal(a.value, 245556042)
+    assert_equal(b.value, 1431495498)
+    assert_equal(a.value, 1744312007)
+    assert_equal(b.value, 137874439)
+    assert_equal(a.value, 1352636452)
+    assert_equal(b.value, 285222916)
+  end
+
+  def test_compare
+    a = Generator.new(16807, 65)
+    b = Generator.new(48271, 8921)
+
+    refute(Generator.compare(a.value, b.value))
+    refute(Generator.compare(a.value, b.value))
+    assert(Generator.compare(a.value, b.value))
+    refute(Generator.compare(a.value, b.value))
+    refute(Generator.compare(a.value, b.value))
+  end
+
 end
