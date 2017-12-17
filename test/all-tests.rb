@@ -423,4 +423,13 @@ c inc -20 if c == 10"
     assert_equal(prom.line, "ceadb")
   end
 
+  def test_promenade_cycle
+    prom = Promenade.new(5)
+    moves = "s1,x3/4,pe/b"
+    line = prom.line
+
+    cycle = prom.get_dance_cycle(moves)
+    assert_equal(cycle[-1], line)
+  end
+
 end

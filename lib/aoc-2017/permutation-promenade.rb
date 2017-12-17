@@ -48,6 +48,21 @@ module AOC2017
       end
     end
 
+    def get_dance_cycle(moves)
+      positions = []
+
+      while true
+        dance(moves)
+        if positions.include?(line)
+          break
+        else
+          positions.push line
+        end
+      end
+
+      positions
+    end
+
   end
 
 end
