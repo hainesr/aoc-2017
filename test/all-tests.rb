@@ -343,6 +343,7 @@ c inc -20 if c == 10"
     blocks = defrag_blocks_init(TEST_DEFRAG)
 
     assert_equal(defrag_blocks_used(blocks), 8108)
+    assert_equal(defrag_blocks_regions(blocks), 1242)
   end
 
 end

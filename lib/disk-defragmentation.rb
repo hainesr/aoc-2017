@@ -28,4 +28,31 @@ module AOC17
     end
   end
 
+  def defrag_blocks_regions(blocks)
+    seen = []
+    num = 0
+    128.times do |i|
+      128.times do |j|
+        next if blocks[i][j] == 0
+        next if seen.include?([i, j])
+        num += 1
+        _blocks_dfs(blocks, i, j, seen)
+      end
+    end
+
+    num
+  end
+
+  def _blocks_dfs(blocks, i, j, seen)
+    return if blocks[i][j] == 0
+    return if seen.include?([i, j])
+
+    seen.push [i, j]
+
+    _blocks_dfs(blocks, i - 1, j, seen) if i > 0
+    _blocks_dfs(blocks, i + 1, j, seen) if i < 127
+    _blocks_dfs(blocks, i, j - 1, seen) if j > 0
+    _blocks_dfs(blocks, i, j + 1, seen) if j < 127
+  end
+
 end
