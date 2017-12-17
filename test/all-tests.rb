@@ -414,9 +414,13 @@ c inc -20 if c == 10"
 
   def test_promenade_dance
     prom = Promenade.new(5)
+    moves = "s1,x3/4,pe/b"
 
-    prom.dance("s1,x3/4,pe/b")
+    prom.dance(moves)
     assert_equal(prom.line, "baedc")
+
+    prom.dance(moves)
+    assert_equal(prom.line, "ceadb")
   end
 
 end
