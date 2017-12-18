@@ -466,4 +466,25 @@ c inc -20 if c == 10"
     assert_equal(spinlock.buffer[spinlock.position + 1], 638)
   end
 
+  #
+  # Day 18.
+  #
+
+  TEST_PROGRAM =
+  "set a 1
+add a 2
+mul a a
+mod a 5
+snd a
+set a 0
+rcv a
+jgz a -1
+set a 1
+jgz a -2"
+
+  def test_duet
+    duet = Duet.new(TEST_PROGRAM)
+    assert_equal(duet.run, 4)
+  end
+
 end
