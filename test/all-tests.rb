@@ -432,4 +432,40 @@ c inc -20 if c == 10"
     assert_equal(cycle[-1], line)
   end
 
+  #
+  # Day 17.
+  #
+
+  def test_spinlock_step
+    spinlock = Spinlock.new(3)
+
+    assert_equal(spinlock.position, 0)
+    assert_equal(spinlock.buffer, [0])
+
+    spinlock.step
+    assert_equal(spinlock.position, 1)
+    assert_equal(spinlock.buffer, [0, 1])
+
+    spinlock.step
+    assert_equal(spinlock.position, 1)
+    assert_equal(spinlock.buffer, [0, 2, 1])
+
+    spinlock.step
+    assert_equal(spinlock.position, 2)
+    assert_equal(spinlock.buffer, [0, 2, 3, 1])
+
+    spinlock.step
+    assert_equal(spinlock.position, 2)
+    assert_equal(spinlock.buffer, [0, 2, 4, 3, 1])
+  end
+
+  def test_spinlock_2017_steps
+    spinlock = Spinlock.new(3)
+
+    while spinlock.step != 2018 do
+    end
+
+    assert_equal(spinlock.buffer[spinlock.position + 1], 638)
+  end
+
 end
