@@ -29,6 +29,18 @@ module AOC2017
       while step != 2018 do; end
     end
 
+    def self.simulate_50M(steps)
+      pos = 0
+      one = nil
+
+      50_000_000.times do |i|
+        pos = ((pos + steps) % (i + 1)) + 1
+        one = i + 1 if pos == 1
+      end
+
+      one
+    end
+
   end
 
 end
