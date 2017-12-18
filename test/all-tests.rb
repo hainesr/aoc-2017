@@ -459,12 +459,10 @@ c inc -20 if c == 10"
     assert_equal(spinlock.buffer, [0, 2, 4, 3, 1])
   end
 
-  def test_spinlock_2017_steps
+  def test_spinlock_to_2017
     spinlock = Spinlock.new(3)
 
-    while spinlock.step != 2018 do
-    end
-
+    spinlock.step_to_2017
     assert_equal(spinlock.buffer[spinlock.position + 1], 638)
   end
 

@@ -25,6 +25,10 @@ module AOC2017
       @value += 1
     end
 
+    def step_to_2017
+      while step != 2018 do; end
+    end
+
   end
 
 end
