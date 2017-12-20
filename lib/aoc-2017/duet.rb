@@ -8,7 +8,7 @@
 
 module AOC2017
 
-  class Duet
+  class BrokenDuet
 
     def initialize(prog)
       @registers = Hash.new(0)

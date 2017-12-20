@@ -482,8 +482,8 @@ jgz a -1
 set a 1
 jgz a -2"
 
-  def test_duet
-    duet = Duet.new(TEST_PROGRAM)
+  def test_broken_duet
+    duet = BrokenDuet.new(TEST_PROGRAM)
     assert_equal(duet.run, 4)
   end
 
