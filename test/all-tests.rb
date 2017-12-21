@@ -501,4 +501,25 @@ rcv d"
     assert_equal(duet.run[1], 3)
   end
 
+  #
+  # Day 19.
+  #
+
+  TEST_NETWORK = [
+    "     |          ",
+    "     |  +--+    ",
+    "     A  |  C    ",
+    " F---|----E|--+ ",
+    "     |  |  |  D ",
+    "     +B-+  +--+ ",
+    "                "
+  ].join("\n")
+
+   def test_tubes
+     net = Network.new(TEST_NETWORK)
+
+     assert_equal(net.find_entrance, 5)
+     assert_equal(net.follow, "ABCDEF")
+   end
+
 end
