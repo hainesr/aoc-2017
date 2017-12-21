@@ -487,4 +487,18 @@ jgz a -2"
     assert_equal(duet.run, 4)
   end
 
+  TEST_PROGRAM_2 =
+  "snd 1
+snd 2
+snd p
+rcv a
+rcv b
+rcv c
+rcv d"
+
+  def test_duet
+    duet = Duet.new(TEST_PROGRAM_2)
+    assert_equal(duet.run[1], 3)
+  end
+
 end
