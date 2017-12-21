@@ -13,6 +13,7 @@ module AOC2017
     def initialize(input)
       @net = read_network(input)
       @letters = []
+      @steps = 1 # We start in the network, on the top edge.
     end
 
     def find_entrance
@@ -45,18 +46,22 @@ module AOC2017
         while current != '+'
           if current.ord >= 'A'.ord && current.ord <= 'Z'.ord
             @letters.push current
-            return @letters.join if last_letter?(y, x, dir)
+            if last_letter?(y, x, dir)
+              return [@letters.join, @steps]
+            end
           end
 
           y += dy
           x += dx
+          @steps += 1
           current = @net[y][x]
         end
 
         y, x, dir = turn_corner(y, x, dir)
+        @steps += 1
       end
 
-      @letters.join
+      [@letters.join, @steps]
     end
 
     private

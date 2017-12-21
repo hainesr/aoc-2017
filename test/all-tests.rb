@@ -519,7 +519,9 @@ rcv d"
      net = Network.new(TEST_NETWORK)
 
      assert_equal(net.find_entrance, 5)
-     assert_equal(net.follow, "ABCDEF")
+     letters, steps = net.follow
+     assert_equal(letters, "ABCDEF")
+     assert_equal(steps, 38)
    end
 
 end

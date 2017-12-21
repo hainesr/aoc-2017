@@ -14,5 +14,7 @@ INPUT = File.join(File.dirname(__FILE__), 'input.txt')
 input = File.read(INPUT).chomp
 
 net = Network.new(input)
+letters, steps = net.follow
 
-puts "Part 1: #{net.follow}"
+puts "Part 1: #{letters}"
+puts "Part 2: #{steps}"
