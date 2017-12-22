@@ -26,6 +26,16 @@ module AOC2017
       @x.abs + @y.abs + @z.abs
     end
 
+    def add(other)
+      @x += other.x
+      @y += other.y
+      @z += other.z
+    end
+
+    def to_array
+      [@x, @y, @z]
+    end
+
   end
 
   class Particle
@@ -43,6 +53,11 @@ module AOC2017
       end
 
       Particle.new(pos, vel, acc)
+    end
+
+    def update
+      @velocity.add(@acceleration)
+      @position.add(@velocity)
     end
 
   end
@@ -73,6 +88,15 @@ module AOC2017
           x.manhattan
         end
       end[1]
+    end
+
+    # Move all the particles according to the rules, then remove groups that
+    # all have the same position.
+    def update
+      @particles.each { |part| part.update }
+      @particles = @particles.group_by do |part|
+        part.position.to_array
+      end.select { |_, v| v.length == 1 }.values.flatten
     end
 
   end

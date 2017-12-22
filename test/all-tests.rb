@@ -530,10 +530,14 @@ rcv d"
 
    TEST_PARTICLE_1 = "p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>"
    TEST_PARTICLE_2 = "p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>"
+   TEST_SWARM = "p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>\np=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>\np=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>\np=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>"
 
    def test_point
      assert_equal(Point.new(-1, 0, 0).manhattan, 1)
      assert_equal(Point.new(4, 0, 3).manhattan, 7)
+     pnt = Point.new(4, -1, -2)
+     pnt.add(Point.new(-1, 10, 0))
+     assert_equal([pnt.x, pnt.y, pnt.z], [3, 9, -2])
    end
 
    def test_particle
@@ -550,6 +554,26 @@ rcv d"
      assert_equal(part.acceleration.x, -1)
      assert_equal(part.acceleration.y, 0)
      assert_equal(part.acceleration.z, 0)
+
+     part.update
+
+     assert_equal(part.position.x, 4)
+     assert_equal(part.position.y, 0)
+     assert_equal(part.position.z, 0)
+
+     assert_equal(part.velocity.x, 1)
+     assert_equal(part.velocity.y, 0)
+     assert_equal(part.velocity.z, 0)
+
+     part.update
+
+     assert_equal(part.position.x, 4)
+     assert_equal(part.position.y, 0)
+     assert_equal(part.position.z, 0)
+
+     assert_equal(part.velocity.x, 0)
+     assert_equal(part.velocity.y, 0)
+     assert_equal(part.velocity.z, 0)
    end
 
    def test_swarm
@@ -558,6 +582,16 @@ rcv d"
 
      assert_equal(swarm.particles.length, 2)
      assert_equal(swarm.closest_to_origin, 0)
+   end
+
+   def test_collisions
+     swarm = Swarm.create(TEST_SWARM)
+
+     swarm.update
+     assert_equal(swarm.particles.length, 4)
+
+     swarm.update
+     assert_equal(swarm.particles.length, 1)
    end
 
 end
