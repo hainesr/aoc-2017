@@ -524,4 +524,40 @@ rcv d"
      assert_equal(steps, 38)
    end
 
+   #
+   # Day 20.
+   #
+
+   TEST_PARTICLE_1 = "p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>"
+   TEST_PARTICLE_2 = "p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>"
+
+   def test_point
+     assert_equal(Point.new(-1, 0, 0).manhattan, 1)
+     assert_equal(Point.new(4, 0, 3).manhattan, 7)
+   end
+
+   def test_particle
+     part = Particle.create(TEST_PARTICLE_1)
+
+     assert_equal(part.position.x, 3)
+     assert_equal(part.position.y, 0)
+     assert_equal(part.position.z, 0)
+
+     assert_equal(part.velocity.x, 2)
+     assert_equal(part.velocity.y, 0)
+     assert_equal(part.velocity.z, 0)
+
+     assert_equal(part.acceleration.x, -1)
+     assert_equal(part.acceleration.y, 0)
+     assert_equal(part.acceleration.z, 0)
+   end
+
+   def test_swarm
+     input = [TEST_PARTICLE_1, TEST_PARTICLE_2].join("\n")
+     swarm = Swarm.create(input)
+
+     assert_equal(swarm.particles.length, 2)
+     assert_equal(swarm.closest_to_origin, 0)
+   end
+
 end
