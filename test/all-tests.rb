@@ -515,83 +515,85 @@ rcv d"
     "                "
   ].join("\n")
 
-   def test_tubes
-     net = Network.new(TEST_NETWORK)
+  def test_tubes
+    net = Network.new(TEST_NETWORK)
 
-     assert_equal(net.find_entrance, 5)
-     letters, steps = net.follow
-     assert_equal(letters, "ABCDEF")
-     assert_equal(steps, 38)
-   end
+    assert_equal(net.find_entrance, 5)
+    letters, steps = net.follow
+    assert_equal(letters, "ABCDEF")
+    assert_equal(steps, 38)
+  end
 
-   #
-   # Day 20.
-   #
+  #
+  # Day 20.
+  #
 
-   TEST_PARTICLE_1 = "p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>"
-   TEST_PARTICLE_2 = "p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>"
-   TEST_SWARM = "p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>\np=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>\np=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>\np=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>"
+  TEST_PARTICLE_1 = "p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>"
+  TEST_PARTICLE_2 = "p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>"
+  TEST_SWARM = "p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>\np=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>\np=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>\np=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>"
 
-   def test_point
-     assert_equal(Point.new(-1, 0, 0).manhattan, 1)
-     assert_equal(Point.new(4, 0, 3).manhattan, 7)
-     pnt = Point.new(4, -1, -2)
-     pnt.add(Point.new(-1, 10, 0))
-     assert_equal([pnt.x, pnt.y, pnt.z], [3, 9, -2])
-   end
+  def test_point
+    assert_equal(Point.new(-1, 0, 0).manhattan, 1)
+    assert_equal(Point.new(4, 0, 3).manhattan, 7)
+    pnt = Point.new(4, -1, -2)
+    pnt.add(Point.new(-1, 10, 0))
+    assert_equal([pnt.x, pnt.y, pnt.z], [3, 9, -2])
+  end
 
-   def test_particle
-     part = Particle.create(TEST_PARTICLE_1)
+  def test_particle
+    part = Particle.create(TEST_PARTICLE_1)
 
-     assert_equal(part.position.x, 3)
-     assert_equal(part.position.y, 0)
-     assert_equal(part.position.z, 0)
+    assert_equal(part.position.x, 3)
+    assert_equal(part.position.y, 0)
+    assert_equal(part.position.z, 0)
 
-     assert_equal(part.velocity.x, 2)
-     assert_equal(part.velocity.y, 0)
-     assert_equal(part.velocity.z, 0)
+    assert_equal(part.velocity.x, 2)
+    assert_equal(part.velocity.y, 0)
+    assert_equal(part.velocity.z, 0)
 
-     assert_equal(part.acceleration.x, -1)
-     assert_equal(part.acceleration.y, 0)
-     assert_equal(part.acceleration.z, 0)
+    assert_equal(part.acceleration.x, -1)
+    assert_equal(part.acceleration.y, 0)
+    assert_equal(part.acceleration.z, 0)
 
-     part.update
+    part.update
 
-     assert_equal(part.position.x, 4)
-     assert_equal(part.position.y, 0)
-     assert_equal(part.position.z, 0)
+    assert_equal(part.position.x, 4)
+    assert_equal(part.position.y, 0)
+    assert_equal(part.position.z, 0)
 
-     assert_equal(part.velocity.x, 1)
-     assert_equal(part.velocity.y, 0)
-     assert_equal(part.velocity.z, 0)
+    assert_equal(part.velocity.x, 1)
+    assert_equal(part.velocity.y, 0)
+    assert_equal(part.velocity.z, 0)
 
-     part.update
+    part.update
 
-     assert_equal(part.position.x, 4)
-     assert_equal(part.position.y, 0)
-     assert_equal(part.position.z, 0)
+    assert_equal(part.position.x, 4)
+    assert_equal(part.position.y, 0)
+    assert_equal(part.position.z, 0)
 
-     assert_equal(part.velocity.x, 0)
-     assert_equal(part.velocity.y, 0)
-     assert_equal(part.velocity.z, 0)
-   end
+    assert_equal(part.velocity.x, 0)
+    assert_equal(part.velocity.y, 0)
+    assert_equal(part.velocity.z, 0)
+  end
 
-   def test_swarm
-     input = [TEST_PARTICLE_1, TEST_PARTICLE_2].join("\n")
-     swarm = Swarm.create(input)
+  def test_swarm
+    input = [TEST_PARTICLE_1, TEST_PARTICLE_2].join("\n")
+    swarm = Swarm.create(input)
 
-     assert_equal(swarm.particles.length, 2)
-     assert_equal(swarm.closest_to_origin, 0)
-   end
+    assert_equal(swarm.particles.length, 2)
+    assert_equal(swarm.closest_to_origin, 0)
+  end
 
-   def test_collisions
-     swarm = Swarm.create(TEST_SWARM)
+  def test_collisions
+    swarm = Swarm.create(TEST_SWARM)
 
-     swarm.update
-     assert_equal(swarm.particles.length, 4)
+    swarm.update
+    assert_equal(swarm.particles.length, 4)
 
-     swarm.update
-     assert_equal(swarm.particles.length, 1)
-   end
+    swarm.update
+    assert_equal(swarm.particles.length, 1)
+  end
+
+
 
 end
