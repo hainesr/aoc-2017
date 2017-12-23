@@ -99,6 +99,21 @@ module AOC2017
       end.select { |_, v| v.length == 1 }.values.flatten
     end
 
+    # Keep running update until there are no changes for "steady" steps.
+    def find_equilibrium(steady = 50)
+      no_changes = 0
+      num = @particles.length
+      while no_changes != steady
+        update
+        if @particles.length == num
+          no_changes += 1
+        else
+          no_changes = 0
+          num = @particles.length
+        end
+      end
+    end
+
   end
 
 end
