@@ -29,6 +29,7 @@ require 'aoc-2017/spinlock'
 require 'aoc-2017/duet'
 require 'aoc-2017/tubes'
 require 'aoc-2017/particle-swarm'
+require 'aoc-2017/fractal-art'
 
 module AOC2017
 end

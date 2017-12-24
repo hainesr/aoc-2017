@@ -594,6 +594,101 @@ rcv d"
     assert_equal(swarm.particles.length, 1)
   end
 
+  #
+  # Day 21.
+  #
 
+  TEST_2X2_PATTERN = ".#/.."
+  TEST_3X3_PATTERN = "#../.#./#.#"
+  TEST_4X4_PATTERN = "#..#/..../..../#..#"
+  TEST_START_PATTERN = ".#./..#/###"
+  TEST_PATTERN_RULES = PatternRules.load_rules(
+    "../.# => ##./#../...\n.#./..#/### => #..#/..../..../#..#")
+
+  def test_2x2_pattern
+    pat = Pattern.create(TEST_2X2_PATTERN)
+
+    assert_equal(pat.size, 2)
+    assert_equal(pat.count_on, 1)
+    assert_equal(pat.count_off, 3)
+    assert_equal((pat.count_on + pat.count_off), (pat.size**2))
+    assert_equal(pat.to_a, [".#", ".."])
+    assert_equal(pat.to_s, ".#\n..")
+    assert_equal(pat.to_s(:flat), ".#/..")
+
+    assert_equal(pat.flip_h.to_a, ["#.", ".."])
+    assert_equal(pat.flip_v.to_a, ["..", ".#"])
+    assert_equal(pat.rotate_90.to_a, ["..", ".#"])
+    assert_equal(pat.rotate_180.to_a, ["..", "#."])
+    assert_equal(pat.rotate_270.to_a, ["#.", ".."])
+
+    pat.enhance(TEST_PATTERN_RULES)
+    assert_equal(pat.size, 3)
+    assert_equal(pat.to_a, ["##.", "#..", "..."])
+  end
+
+  def test_3x3_pattern
+    pat = Pattern.create(TEST_3X3_PATTERN)
+
+    assert_equal(pat.size, 3)
+    assert_equal(pat.count_on, 4)
+    assert_equal(pat.count_off, 5)
+    assert_equal((pat.count_on + pat.count_off), (pat.size**2))
+    assert_equal(pat.to_a, ["#..", ".#.", "#.#"])
+    assert_equal(pat.to_s, "#..\n.#.\n#.#")
+    assert_equal(pat.to_s(:flat), "#../.#./#.#")
+
+    assert_equal(pat.flip_h.to_a, ["..#", ".#.", "#.#"])
+    assert_equal(pat.flip_v.to_a, ["#.#", ".#.", "#.."])
+    assert_equal(pat.rotate_90.to_a, ["#.#", ".#.", "#.."])
+    assert_equal(pat.rotate_180.to_a, ["#.#", ".#.", "..#"])
+    assert_equal(pat.rotate_270.to_a, ["..#", ".#.", "#.#"])
+
+    pat.enhance(TEST_PATTERN_RULES)
+    assert_equal(pat.size, 3)
+    assert_equal(pat.to_a, ["#..", ".#.", "#.#"])
+  end
+
+  def test_4x4_pattern
+    pat = Pattern.create(TEST_4X4_PATTERN)
+
+    assert_equal(pat.size, 4)
+    assert_equal(pat.count_on, 4)
+    assert_equal(pat.count_off, 12)
+    assert_equal((pat.count_on + pat.count_off), (pat.size**2))
+    assert_equal(pat.to_a, ["#..#", "....", "....", "#..#"])
+    assert_equal(pat.to_s, "#..#\n....\n....\n#..#")
+    assert_equal(pat.to_s(:flat), "#..#/..../..../#..#")
+
+    assert_equal(pat.flip_h.to_a, ["#..#", "....", "....", "#..#"])
+    assert_equal(pat.flip_v.to_a, ["#..#", "....", "....", "#..#"])
+    assert_equal(pat.rotate_90.to_a, ["#..#", "....", "....", "#..#"])
+    assert_equal(pat.rotate_180.to_a, ["#..#", "....", "....", "#..#"])
+    assert_equal(pat.rotate_270.to_a, ["#..#", "....", "....", "#..#"])
+
+    pat.enhance(TEST_PATTERN_RULES)
+    assert_equal(pat.size, 6)
+    assert_equal(pat.to_a,
+      ["##.##.", "#..#..", "......", "##.##.", "#..#..", "......"])
+  end
+
+  def test_pattern_rules
+    p2 = Pattern.create(TEST_2X2_PATTERN)
+    p3 = Pattern.create(TEST_3X3_PATTERN)
+
+    assert_equal(TEST_PATTERN_RULES.size, 12)
+    assert_equal(TEST_PATTERN_RULES.match(p2), "##./#../...")
+    assert_equal(TEST_PATTERN_RULES.match(p2.flip_h), "##./#../...")
+    assert_equal(TEST_PATTERN_RULES.match(p3), nil)
+  end
+
+  def test_iterations
+    pattern = Pattern.create(TEST_START_PATTERN)
+
+    pattern.enhance(TEST_PATTERN_RULES, 2)
+    assert_equal(pattern.count_on, 12)
+    assert_equal(pattern.to_s(:flat),
+      "##.##./#..#../....../##.##./#..#../......")
+  end
 
 end
