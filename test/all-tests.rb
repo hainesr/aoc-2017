@@ -691,4 +691,23 @@ rcv d"
       "##.##./#..#../....../##.##./#..#../......")
   end
 
+  #
+  # Day 22.
+  #
+
+  TEST_VIRUS_MAP = "..#\n#..\n..."
+
+  def test_sporifica
+    virus = Sporifica.new(TEST_VIRUS_MAP, 1, 1)
+
+    virus.run(7)
+    assert_equal(virus.infections, 5)
+
+    virus.run(63)
+    assert_equal(virus.infections, 41)
+
+    virus.run(9_930)
+    assert_equal(virus.infections, 5_587)
+  end
+
 end

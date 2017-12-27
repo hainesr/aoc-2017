@@ -30,6 +30,7 @@ require 'aoc-2017/duet'
 require 'aoc-2017/tubes'
 require 'aoc-2017/particle-swarm'
 require 'aoc-2017/fractal-art'
+require 'aoc-2017/sporifica-virus'
 
 module AOC2017
 end
