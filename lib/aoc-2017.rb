@@ -31,6 +31,7 @@ require 'aoc-2017/tubes'
 require 'aoc-2017/particle-swarm'
 require 'aoc-2017/fractal-art'
 require 'aoc-2017/sporifica-virus'
+require 'aoc-2017/copro-conflagration'
 
 module AOC2017
 end
