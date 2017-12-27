@@ -11,10 +11,11 @@ module AOC2017
   class CoPro
     attr_reader :multiplies
 
-    def initialize(input)
+    def initialize(input, debug = true)
       @program = input.split("\n").map { |l| l.split }
       @pc = 0
       @registers = Hash.new(0)
+      @registers['a'] = 1 unless debug
       @multiplies = 0
     end
 
@@ -40,6 +41,10 @@ module AOC2017
           end
         end
       end
+    end
+
+    def h
+      @registers['h']
     end
 
     private
