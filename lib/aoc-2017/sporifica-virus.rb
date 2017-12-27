@@ -35,8 +35,35 @@ module AOC2017
       @infections
     end
 
-    def run(iterations)
-      iterations.times { burst }
+    def burst_ng
+      #puts "#{@current[0]}, #{@current[1]}: #{@map[@current]}"
+      case @map[@current]
+      when '#'
+        right
+        @map[@current] = 'F'
+      when '.'
+        left
+        @map[@current] = 'W'
+      when 'W'
+        @map[@current] = '#'
+        @infections += 1
+      when 'F'
+        back
+        @map[@current] = '.'
+      end
+
+      @current[0] += @dx
+      @current[1] += @dy
+
+      @infections
+    end
+
+    def run(iterations, version = :original)
+      if version == :evolved
+        iterations.times { burst_ng }
+      else
+        iterations.times { burst }
+      end
     end
 
     private
@@ -51,6 +78,11 @@ module AOC2017
       tmp = @dy
       @dy = -@dx
       @dx = tmp
+    end
+
+    def back
+      @dx = -@dx
+      @dy = -@dy
     end
 
     def init_map(input)

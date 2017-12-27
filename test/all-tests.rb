@@ -710,4 +710,14 @@ rcv d"
     assert_equal(virus.infections, 5_587)
   end
 
+  def test_sporifica_evolved
+    virus = Sporifica.new(TEST_VIRUS_MAP, 1, 1)
+
+    virus.run(100, :evolved)
+    assert_equal(virus.infections, 26)
+
+    # virus.run(9_999_900, :evolved)
+    # assert_equal(virus.infections, 2_511_944)
+  end
+
 end
