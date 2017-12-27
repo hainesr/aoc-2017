@@ -16,3 +16,5 @@ input = File.read(INPUT).chomp
 copro = CoPro.new(input)
 copro.run
 puts "Part 1: #{copro.multiplies}"
+
+puts "Part 2: #{copro_part_2}"

@@ -6,6 +6,8 @@
 # Public Domain
 #
 
+require 'prime'
+
 module AOC2017
 
   class CoPro
@@ -53,6 +55,19 @@ module AOC2017
       i.ord < 97 ? i.to_i : @registers[i]
     end
 
+  end
+
+  # Part 2 is searching for non-primes. Register h is incremented for each
+  # composite number between the start and end points (registers b and c),
+  # with 17 as the step size (sub b -17).
+  def copro_part_2
+    start = (79 * 100) + 100_000
+    stop = start + 17_000
+    step = 17
+
+    h = 0
+    (start..stop).step(step) { |i| h += 1 unless i.prime? }
+    h
   end
 
 end
