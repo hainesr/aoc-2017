@@ -33,6 +33,7 @@ require 'aoc-2017/fractal-art'
 require 'aoc-2017/sporifica-virus'
 require 'aoc-2017/copro-conflagration'
 require 'aoc-2017/electromagnetic-moat'
+require 'aoc-2017/halting-problem'
 
 module AOC2017
 end
