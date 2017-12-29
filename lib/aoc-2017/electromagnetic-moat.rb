@@ -23,15 +23,25 @@ module AOC2017
       @bridges.map { |b| b.strongest }.max
     end
 
+    def longest_bridge
+      @bridges.map { |b| b.longest }.max + 1
+    end
+
+    def strongest_longest_bridge
+      depth = longest_bridge - 1
+      @bridges.map { |b| b.strongest(depth) }.max
+    end
+
     private
 
-    def build_tree(set, comp, val = 0)
-      node = ComponentTree.new(comp)
+    def build_tree(set, comp, val = 0, depth = 0, str = 0)
+      ns = str + comp.sum
+      node = ComponentTree.new(comp, depth, ns)
 
       o = (comp[0] == val) ? comp[1] : comp[0]
       set.select{ |c| c.include?(o) }.each do |r|
         s = set.reject { |c| c == r }
-        node.children << build_tree(s, r, o)
+        node.children << build_tree(s, r, o, depth + 1, ns)
       end
 
       node
@@ -42,15 +52,34 @@ module AOC2017
   class ComponentTree
 
     attr_reader :value
-    attr_accessor :children
+    attr_accessor :children, :depth
 
-    def initialize(v)
+    def initialize(v, d, s)
       @value = v
+      @depth = d
+      @strength = s
       @children = []
     end
 
-    def strongest
-      @value.sum + (@children.map { |c| c.nil? ? 0 : c.strongest }.max || 0)
+    def strongest(d = nil, s = [])
+      if @children == []
+        if d.nil?
+          s += [@strength]
+        elsif d == @depth
+          s += [@strength]
+        else
+          s += [0]
+        end
+      else
+        s += @children.map { |c| c.strongest(d, s) }
+      end
+
+      s.max
+    end
+
+    def longest(d = [])
+      d += @children == [] ? [@depth] : @children.map { |c| c.longest(d) }
+      d.max
     end
 
   end

@@ -730,6 +730,8 @@ rcv d"
     c_set = ComponentSet.new(TEST_COMPONENTS)
 
     assert_equal(c_set.strongest_bridge, 31)
+    assert_equal(c_set.longest_bridge, 4)
+    assert_equal(c_set.strongest_longest_bridge, 19)
   end
 
 end
