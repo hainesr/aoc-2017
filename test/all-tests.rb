@@ -720,4 +720,16 @@ rcv d"
     # assert_equal(virus.infections, 2_511_944)
   end
 
+  #
+  # Day 24.
+  #
+
+  TEST_COMPONENTS = "0/2\n2/2\n2/3\n3/4\n3/5\n0/1\n10/1\n9/10"
+
+  def test_component_set
+    c_set = ComponentSet.new(TEST_COMPONENTS)
+
+    assert_equal(c_set.strongest_bridge, 31)
+  end
+
 end

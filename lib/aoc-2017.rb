@@ -32,6 +32,7 @@ require 'aoc-2017/particle-swarm'
 require 'aoc-2017/fractal-art'
 require 'aoc-2017/sporifica-virus'
 require 'aoc-2017/copro-conflagration'
+require 'aoc-2017/electromagnetic-moat'
 
 module AOC2017
 end
