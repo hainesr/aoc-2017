@@ -10,7 +10,7 @@ require 'aoc-2017'
 
 include AOC2017
 
-INPUT = File.join(File.dirname(__FILE__), 'input.txt')
+INPUT = get_input_file(16)
 
 input = File.read(INPUT).chomp
 
