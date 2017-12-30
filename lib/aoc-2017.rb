@@ -36,4 +36,10 @@ require 'aoc-2017/electromagnetic-moat'
 require 'aoc-2017/halting-problem'
 
 module AOC2017
+
+  def get_input_file(day)
+    file = "%02d.txt" % day
+    File.join(File.dirname(__FILE__), "..", "etc", file)
+  end
+
 end
