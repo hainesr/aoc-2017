@@ -23,7 +23,7 @@ task :run do
     puts "Advent of Code day #{day}"
     file = "%02d.rb" % day
     run = File.join(File.dirname(__FILE__), "bin", file)
-    exec "ruby #{run}"
+    system "ruby #{run}"
   end
   exit
 end
