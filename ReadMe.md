@@ -17,7 +17,11 @@ This will set everything up and run all the tests.
 
 To run the solution for a particular day:
 
-* `ruby -I lib <day>/run.rb`
+* `rake run <day>`
+
+You can run multiple days like this:
+
+* `rake run <day_1> <day_2> ... <day_n>`
 
 ### Licence
 
